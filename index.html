@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    #video-container {
+      position: relative;
+        width: 100%;
+        height: 100vh;
+      }
+
+      #video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      #text-overlay {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 2em;
+        text-align: center;
+        animation: fade-in 2s infinite alternate;
+      }
+
+      #text-overlay-2 {
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 1.5em;
+        text-align: center;
+      }
+
+      #button-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      </style>
+</head>
+<body>
+  <div id="video-container">
+    <video id="video" loop autoplay>
+      <source src="movie.mp4" type="video/mp4">
+    </video>
+    <div id="text-overlay">
+      Welcome to the website
+    </div>
+    <div id="text-overlay-2">
+    hahah
+      <br>
+      Current time: <span id="current-time"></span>
+    </div>
+  </div>
+  <div id="button-container">
+    <button type="button" onclick="window.location.href='page2.html'">Go to page 2</button>
+  </div>
+
+  <script>
+    // Get the current time element
+    const currentTimeElement = document.getElementById('current-time');
+
+    // Update the current time every second
+    setInterval(() => {
+      // Get the current time
+      const currentTime = new Date();
+
+      // Format the current time as a string
+      const currentTimeString = currentTime.toLocaleTimeString();
+
+      // Update the current time element
+      currentTimeElement.textContent = currentTimeString;
+    }, 1000);
+  </script>
+</body>

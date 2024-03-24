@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>Animation of texts and videos</title>
+</head>
+<body>
+  <p>This is an animated text.</p>
+  <video width="320" height="240" controls>
+    <source src="movie.mp4" type="video/mp4">
+  </video>
+  <script>
+    var text = document.querySelector('p');
+    var video = document.querySelector('video');
+
+    var animation = text.animate([
+      { opacity: 0 },
+      { opacity: 1 }
+    ], 1000);
+
+    animation.addEventListener('finish', function() {
+      video.play();
+    });
+  </script>
+</body>
+</html>
